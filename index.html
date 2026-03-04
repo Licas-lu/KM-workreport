@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 KM 快乐运营 - 知识管理</title>
+    <!-- 引入艺术字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
+
+        :root {
+            --pop-blue: #6366f1;
+            --pop-pink: #f472b6;
+            --pop-yellow: #fbbf24;
+            --pop-green: #34d399;
+            --bg-soft: #f0f4ff;
+        }
+
+        body {
+            background-color: var(--bg-soft);
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #334155;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* 活泼的 Header */
+        .hero-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            border-radius: 0 0 50px 50px;
+            position: relative;
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2v-4h4v-2H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* 艺术字 Slogan 升级版 */
+        .slogan-art {
+            font-family: 'Zhi Mang Xing', cursive;
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 3px 3px 0px var(--pop-pink), 6px 6px 0px rgba(0,0,0,0.1);
+            animation: bounce 4s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+        }
+
+        /* 活泼卡片样式 */
+        .pop-card {
+            background: white;
+            border-radius: 24px;
+            border: 4px solid transparent;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 0px -2px #e2e8f0;
+        }
+
+        .pop-card:hover {
+            transform: scale(1.03) translateY(-10px);
+            border-color: var(--pop-blue);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 日历表格美化 */
+        .calendar-table th {
+            background: #f8fafc;
+            border-bottom: 4px solid #e2e8f0;
+            padding: 12px;
+        }
+
+        .bar-item {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 11px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .tag-pill {
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* 步骤圈 */
+        .step-circle {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 4px solid var(--pop-blue);
+            color: var(--pop-blue);
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .process-step:hover .step-circle {
+            background: var(--pop-blue);
+            color: white;
+            transform: rotate(15deg);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部欢快 Header -->
+    <header class="hero-gradient text-white py-20 px-6 relative overflow-hidden">
+        <div class="hero-pattern"></div>
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            <div class="inline-block bg-white/20 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold mb-6">
+                🚀 2026 知识管理新升级
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black mb-10 tracking-tight">
+                精选推送策略方案
+            </h1>
+            
+            <div class="relative inline-block">
+                <div class="slogan-art">
+                    让优质内容，遇见对的人
+                </div>
+                <!-- 装饰小元素 -->
+                <span class="absolute -top-6 -right-8 text-4xl">✨</span>
+                <span class="absolute -bottom-4 -left-10 text-3xl">💡</span>
+            </div>
+            
+            <div class="mt-12 flex justify-center gap-4">
+                <div class="bg-white/10 px-6 py-2 rounded-2xl border border-white/20">📅 每周/月定期</div>
+                <div class="bg-white/10 px-6 py-2 rounded-2xl border border-white/20">🎯 精准触达</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto py-12 px-6">
+        
+        <!-- 全景日历区域：采用软萌色调 -->
+        <section class="pop-card p-8 mb-12 overflow-hidden">
+            <div class="flex items-center mb-8">
+                <div class="bg-red-500 w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-red-200 mr-4">📅</div>
+                <div>
+                    <h2 class="text-2xl font-black text-gray-800">2026 KM 运营全景日历</h2>
+                    <p class="text-sm text-gray-400">四季流转，知识常新</p>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto pb-4">
+                <table class="w-full text-center border-collapse min-w-[1000px]">
+                    <thead>
+                        <tr>
+                            <th class="w-32">主题维度</th>
+                            <th colspan="3" class="rounded-tl-2xl" style="background: #ecfdf5; color: #059669;">🌱 春启·知识导源</th>
+                            <th colspan="3" style="background: #f0f9ff; color: #0284c7;">☀️ 夏长·共享创新</th>
+                            <th colspan="3" style="background: #fff7ed; color: #ea580c;">🍂 秋收·案例沉淀</th>
+                            <th colspan="3" class="rounded-tr-2xl" style="background: #fefce8; color: #ca8a04;">❄️ 冬藏·表彰展望</th>
+                        </tr>
+                        <tr class="bg-gray-50 text-xs font-bold text-gray-400">
+                            <td></td>
+                            <td>1月</td><td>2月</td><td>3月</td>
+                            <td>4月</td><td>5月</td><td>6月</td>
+                            <td>7月</td><td>8月</td><td>9月</td>
+                            <td>10月</td><td>11月</td><td>12月</td>
+                        </tr>
+                    </thead>
+                    <tbody class="text-[11px]">
+                        <!-- 这里的行内容精简，突出视觉美感 -->
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-bold text-gray-600">☕ 闭门沙龙</td>
+                            <td colspan="2"></td>
+                            <td><div class="bar-item bg-indigo-100 text-indigo-600">AI思维</div></td>
+                            <td><div class="bar-item bg-indigo-100 text-indigo-600">AI灵感</div></td>
+                            <td><div class="bar-item bg-green-100 text-green-600">团队KM</div></td>
+                            <td><div class="bar-item bg-green-100 text-green-600">KMer修养</div></td>
+                            <td colspan="6" class="text-gray-300 italic">精彩待续...</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="py-4 font-bold text-gray-600">📢 精选推送</td>
+                            <td colspan="2"></td>
+                            <td colspan="2"><div class="bar-item bg-green-500 text-white">规则制定与梳理</div></td>
+                            <td colspan="3" class="text-green-500 font-bold">● 常态化推送执行 ●</td>
+                            <td><div class="bar-item bg-blue-500 text-white">AI资源</div></td>
+                            <td><div class="bar-item bg-orange-400 text-white">项目资产</div></td>
+                            <td><div class="bar-item bg-pink-400 text-white">培训资产</div></td>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 font-bold text-gray-600">🎤 专题访谈</td>
+                            <td colspan="2"></td>
+                            <td colspan="2"><div class="bar-item bg-yellow-100 text-yellow-700">宣发验证</div></td>
+                            <td colspan="2"><div class="bar-item bg-yellow-400 text-white">试点改进</div></td>
+                            <td colspan="2"><div class="bar-item bg-yellow-500 text-white">“毕业季”专题</div></td>
+                            <td><div class="bar-item bg-yellow-600 text-white">成果输出</div></td>
+                            <td colspan="3"><div class="bar-item bg-yellow-100 text-yellow-700 text-center">方法总结与表彰</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 活动描述：左右分栏 -->
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <section class="md:col-span-2 pop-card p-8 flex items-start gap-6">
+                <div class="text-4xl">📝</div>
+                <div>
+                    <h2 class="text-xl font-black mb-4">活动在干嘛？</h2>
+                    <p class="text-gray-500 leading-relaxed">
+                        简单说，就是把最棒的知识送到最需要的人手里！比如：把《营销圣经》推给前线战士，把《技术红宝书》推给代码大神，拒绝信息轰炸，只推精品！
+                    </p>
+                </div>
+            </section>
+            <section class="pop-card p-8 bg-indigo-600 text-white border-none">
+                <h2 class="text-xl font-black mb-4 flex items-center">
+                    <span class="mr-2">🌍</span> 活动规模
+                </h2>
+                <p class="text-indigo-100 mb-4">线上全员参与，但我们坚持“精选”原则。</p>
+                <div class="bg-white/20 p-3 rounded-xl text-xs">只有 512 颗星的内容才有机会出街哦！</div>
+            </section>
+        </div>
+
+        <!-- 维度矩阵：彩虹配色 -->
+        <h2 class="text-3xl font-black text-center mb-10 text-gray-800">推送的三大频道</h2>
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="pop-card p-8 border-b-8 border-blue-400">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-2xl mb-6">🏢</div>
+                <h3 class="text-xl font-bold mb-3">业务频道</h3>
+                <p class="text-sm text-gray-500 mb-4">行业报告、神级模板、成功案例。每周 1-2 次，干货满满！</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill bg-blue-50 text-blue-600">高频</span>
+                    <span class="tag-pill bg-blue-50 text-blue-600">成长必备</span>
+                </div>
+            </div>
+            <div class="pop-card p-8 border-b-8 border-purple-400">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-2xl mb-6">🏭</div>
+                <h3 class="text-xl font-bold mb-3">产业频道</h3>
+                <p class="text-sm text-gray-500 mb-4">安全生产、降本增效、系统指南。按需推送，精准解决痛点。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill bg-purple-50 text-purple-600">精准</span>
+                    <span class="tag-pill bg-purple-50 text-purple-600">实操指南</span>
+                </div>
+            </div>
+            <div class="pop-card p-8 border-b-8 border-pink-400">
+                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-2xl mb-6">🌟</div>
+                <h3 class="text-xl font-bold mb-3">集团频道</h3>
+                <p class="text-sm text-gray-500 mb-4">企业文化、合规红线、重大主题。只出精品，塑造威高之魂。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill bg-pink-50 text-pink-600">低频</span>
+                    <span class="tag-pill bg-pink-50 text-pink-600">重磅精品</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 流程：趣味化 -->
+        <section class="pop-card p-12 mb-16">
+            <h2 class="text-3xl font-black text-center mb-12">简单的 4 步变强流程</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="process-step text-center">
+                    <div class="step-circle mb-4">01</div>
+                    <h4 class="font-bold">定规则</h4>
+                    <p class="text-xs text-gray-400 mt-2">谁该看啥，先理清楚</p>
+                </div>
+                <div class="process-step text-center">
+                    <div class="step-circle mb-4">02</div>
+                    <h4 class="font-bold">打申请</h4>
+                    <p class="text-xs text-gray-400 mt-2">好东西要勇敢秀出来</p>
+                </div>
+                <div class="process-step text-center">
+                    <div class="step-circle mb-4">03</div>
+                    <h4 class="font-bold">点推送</h4>
+                    <p class="text-xs text-gray-400 mt-2">一键触达，知识飞升</p>
+                </div>
+                <div class="process-step text-center">
+                    <div class="step-circle mb-4">04</div>
+                    <h4 class="font-bold">看反馈</h4>
+                    <p class="text-xs text-gray-400 mt-2">有多少人点赞收藏？</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 组织支撑 -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="pop-card p-8 bg-gray-900 text-white">
+                <h3 class="text-xl font-black mb-6 flex items-center">
+                    <span class="mr-3">🤝</span> 谁在支持我？
+                </h3>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-center gap-3">
+                        <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
+                        <span class="text-blue-300 font-bold">集团 KM：</span> 负责搭台子、定规则、审流程。
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="w-2 h-2 bg-pink-400 rounded-full"></span>
+                        <span class="text-pink-300 font-bold">各单位：</span> 负责挑好货、按按钮、看效果。
+                    </li>
+                </ul>
+            </div>
+            <div class="pop-card p-8">
+                <h3 class="text-xl font-black mb-6 flex items-center">
+                    <span class="mr-3">🎁</span> 激励大放送
+                </h3>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-yellow-50 rounded-xl">
+                        <span class="text-sm font-bold">🌟 五星内容奖</span>
+                        <span class="text-yellow-600 font-black">+500 积分</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-green-50 rounded-xl">
+                        <span class="text-sm font-bold">📈 传播达人榜</span>
+                        <span class="text-green-600 font-black">月度表彰</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-16 text-gray-400 text-sm">
+        <div class="mb-2">知识管理部 · 2026 快乐运营</div>
+        <div class="font-black text-gray-300 tracking-widest uppercase">Keep Knowledge Moving</div>
+    </footer>
+
+</body>
+</html>
